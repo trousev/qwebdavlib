@@ -1,13 +1,19 @@
 #include <QtCore/QCoreApplication>
 
-#include "qexample.h"
-
+#include "../qwebdavlib/qwebdavobject.h"
+#include <iostream>
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    QExample e;
-    e.start();
-    
-    return a.exec();
+    std::cout << "Input DAV URL: ";
+    std::string s;
+    std::cin >> s;
+
+    QWebdavObject obj(QUrl(QString::fromStdString(s)));
+    foreach(QWebdavObject obj, obj.list())
+    {
+        qDebug() << obj.name();
+    }
+
 }

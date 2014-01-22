@@ -21,7 +21,10 @@ win32:CONFIG(release, debug|release) {
     PRE_TARGETDEPS += $$OUT_PWD/../qwebdavlib/debug/libqwebdav.a
     INCLUDEPATH += $$OUT_PWD/../qwebdavlib/
     LIBS += -L$$OUT_PWD/../qwebdavlib/debug/ -lqwebdav
-}
+} else {
+    INCLUDEPATH += $$OUT_PWD/../qwebdavlib/
+    LIBS += -L$$OUT_PWD/../qwebdavlib/ -lqwebdav
 
+}
 HEADERS += \
     qexample.h

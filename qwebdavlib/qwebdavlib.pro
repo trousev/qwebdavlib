@@ -18,13 +18,15 @@ DEFINES += QWEBDAV_LIBRARY
 SOURCES += qwebdav.cpp \
     qwebdavitem.cpp \
     qwebdavdirparser.cpp \
-    qnaturalsort.cpp
+    qnaturalsort.cpp \
+    qwebdavobject.cpp
 
 HEADERS += qwebdav.h \
     qwebdavitem.h \
     qwebdavdirparser.h \
     qnaturalsort.h \
-    qwebdav_global.h
+    qwebdav_global.h \
+    qwebdavobject.h
 
 OTHER_FILES += \
     CHANGES \
