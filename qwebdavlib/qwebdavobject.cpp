@@ -3,6 +3,7 @@
 #include "qwebdavdirparser.h"
 
 WebDavProvider::WebDavProvider(QUrl url)
+    :_url(url)
 {
     QWebdav::QWebdavConnectionType conntype = QWebdav::HTTP;
     int port = 80;
@@ -25,6 +26,12 @@ void WebDavProvider::exitLoop()
     loop.exit();
 }
 
+QUrl WebDavProvider::url(QString path)
+{
+    QUrl u = _url;
+    u.setPath(u.path()+path);
+    return u;
+}
 
 QList<QWebdavItem>  WebDavProvider::list(QString path)
 {
@@ -151,4 +158,18 @@ QList<QWebdavObject> QWebdavObject::list()
 QWebdavObject QWebdavObject::child(QString path)
 {
     return QWebdavObject(_provider, _path+"/"+path);
+}
+bool QWebdavObject::mkdir(QString path)
+{
+    _provider->mkdir(_path+"/"+path);
+}
+
+bool QWebdavObject::remove()
+{
+    _provider->remove(_path);
+}
+
+QUrl QWebdavObject::url()
+{
+    return _provider->url(_path);
 }

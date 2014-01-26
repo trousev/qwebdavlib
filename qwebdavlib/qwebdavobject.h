@@ -18,10 +18,12 @@ public:
     bool upload(QString path, QByteArray data);
     bool mkdir(QString path);
     bool remove(QString path);
+    QUrl url(QString path);
 
 private:
     QWebdav _webdav;
     QEventLoop loop;
+    QUrl _url;
 private slots:
     void exitLoop();
 
@@ -43,13 +45,15 @@ public:
     QByteArray content();
     bool setContent(QByteArray content);
 
+    QUrl url();
     QString name();
     Type type();
     bool isFile();
     bool isDir();
     QList<QWebdavObject> list();
     QWebdavObject child(QString path);
-
+    bool mkdir(QString path);
+    bool remove();
 
 private:
     QString _path;

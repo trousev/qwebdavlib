@@ -15,18 +15,7 @@ DEFINES += DEBUG_WEBDAV
 # DO NOT REMOVE - REQUIRED BY qwebdav_global.h
 DEFINES += QWEBDAV_LIBRARY
 
-SOURCES += qwebdav.cpp \
-    qwebdavitem.cpp \
-    qwebdavdirparser.cpp \
-    qnaturalsort.cpp \
-    qwebdavobject.cpp
-
-HEADERS += qwebdav.h \
-    qwebdavitem.h \
-    qwebdavdirparser.h \
-    qnaturalsort.h \
-    qwebdav_global.h \
-    qwebdavobject.h
+include(qwebdavlib.pri)
 
 OTHER_FILES += \
     CHANGES \
