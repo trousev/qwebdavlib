@@ -173,3 +173,8 @@ QUrl QWebdavObject::url()
 {
     return _provider->url(_path);
 }
+
+QDateTime QWebdavObject::lastModified()
+{
+    return _item.lastModified();
+}

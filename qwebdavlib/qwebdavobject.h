@@ -54,6 +54,7 @@ public:
     QWebdavObject child(QString path);
     bool mkdir(QString path);
     bool remove();
+    QDateTime lastModified();
 
 private:
     QString _path;
