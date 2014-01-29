@@ -90,6 +90,17 @@ bool WebDavProvider::remove(QString path)
     reply->deleteLater();
     return true;
 }
+bool WebDavProvider::rename(QString path, QString newPath)
+{
+    newPath = QFileInfo(path).dir().path() + "/" + newPath;
+    QNetworkReply * reply = _webdav.move(path, newPath,false);
+    connect(reply, SIGNAL(finished()), this, SLOT(exitLoop()));
+    loop.exec();
+    if(reply->readAll().contains("error")) return false;
+    reply->deleteLater();
+    return true;
+
+}
 
 /////////////////////////////////////////////////////////////
 
@@ -177,4 +188,8 @@ QUrl QWebdavObject::url()
 QDateTime QWebdavObject::lastModified()
 {
     return _item.lastModified();
+}
+bool QWebdavObject::renameTo(QString newPath)
+{
+    return _provider->rename(_path, newPath);
 }

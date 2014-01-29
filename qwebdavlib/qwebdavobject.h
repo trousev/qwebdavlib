@@ -18,6 +18,7 @@ public:
     bool upload(QString path, QByteArray data);
     bool mkdir(QString path);
     bool remove(QString path);
+    bool rename(QString path, QString newPath);
     QUrl url(QString path);
 
 private:
@@ -54,6 +55,7 @@ public:
     QWebdavObject child(QString path);
     bool mkdir(QString path);
     bool remove();
+    bool renameTo(QString newPath);
     QDateTime lastModified();
 
 private:
