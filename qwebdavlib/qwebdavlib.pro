@@ -6,6 +6,7 @@ QT       -= gui
 TARGET = qwebdav
 TEMPLATE = lib
 
+DESTDIR=../lib
 # Enable DEBUG output with qDebug()
 DEFINES += DEBUG_WEBDAV
 

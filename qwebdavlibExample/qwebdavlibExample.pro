@@ -1,30 +1,18 @@
 QT       += core network xml
-
 QT       -= gui
+
+include(../use.pri)
 
 TARGET = testConsole
 CONFIG   += console
 CONFIG   -= app_bundle
 
 TEMPLATE = app
+DESTDIR=../bin
 
 SOURCES += main.cpp \
     qexample.cpp
 
-win32:CONFIG(release, debug|release) {
-    # WINDOWS RELEASE
-    PRE_TARGETDEPS += $$OUT_PWD/../qwebdavlib/release/libqwebdav.a
-    INCLUDEPATH += $$OUT_PWD/../qwebdavlib/
-    LIBS += -L$$OUT_PWD/../qwebdavlib/release/ -lqwebdav
-} else:win32:CONFIG(debug, debug|release) {
-    # WINDOWS DEBUG
-    PRE_TARGETDEPS += $$OUT_PWD/../qwebdavlib/debug/libqwebdav.a
-    INCLUDEPATH += $$OUT_PWD/../qwebdavlib/
-    LIBS += -L$$OUT_PWD/../qwebdavlib/debug/ -lqwebdav
-} else {
-    INCLUDEPATH += $$OUT_PWD/../qwebdavlib/
-    LIBS += -L$$OUT_PWD/../qwebdavlib/ -lqwebdav
-
-}
 HEADERS += \
     qexample.h
+
