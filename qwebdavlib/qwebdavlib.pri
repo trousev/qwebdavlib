@@ -1,5 +1,5 @@
 
-QT += core
+QT += core xml
 INCLUDEPATH+=$$PWD
 
 SOURCES += $$PWD/qwebdav.cpp \
@@ -17,7 +17,7 @@ HEADERS += $$PWD/qwebdav.h \
 
 
 # Enable DEBUG output with qDebug()
-DEFINES += DEBUG_WEBDAV
+# DEFINES += DEBUG_WEBDAV
 
 # Enable extended WebDAV properties (see QWebDavItem.h/cpp)
 #DEFINES += QWEBDAVITEM_EXTENDED_PROPERTIES

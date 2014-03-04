@@ -122,6 +122,10 @@ QWebdavObject::QWebdavObject(QUrl url)
     _item = QWebdavItem();
     _type = AbstractPath;
 }
+QWebdavObject::QWebdavObject()
+{
+    _type = Null;
+}
 
 QByteArray QWebdavObject::content()
 {
@@ -153,6 +157,10 @@ bool QWebdavObject::isFile()
 bool QWebdavObject::isDir()
 {
     return _type == Directory;
+}
+bool QWebdavObject::isNull()
+{
+    return _type == Null;
 }
 
 QList<QWebdavObject> QWebdavObject::list()

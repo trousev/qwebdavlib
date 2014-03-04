@@ -10,7 +10,7 @@
 class WebDavProvider: public QObject
 {
     Q_OBJECT
-
+    friend class QWebdavObject;
 public:
     explicit WebDavProvider(QUrl url);
     QList<QWebdavItem> list(QString path="/");
@@ -38,10 +38,11 @@ public:
 
     enum Type
     {
-        AbstractPath, File, Directory
+        Null, AbstractPath, File, Directory
     };
 
     QWebdavObject(QUrl url);
+    QWebdavObject();
 
     QByteArray content();
     bool setContent(QByteArray content);
@@ -51,12 +52,15 @@ public:
     Type type();
     bool isFile();
     bool isDir();
+    bool isNull();
     QList<QWebdavObject> list();
     QWebdavObject child(QString path);
     bool mkdir(QString path);
     bool remove();
     bool renameTo(QString newPath);
     QDateTime lastModified();
+
+    QWebdav * engine() { return &(_provider->_webdav); }
 
 private:
     QString _path;
