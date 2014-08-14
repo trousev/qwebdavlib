@@ -1,3 +1,5 @@
+isEmpty(LIB_QWEBDAV) { LIB_QWEBDAV=YES
+
 QT       += core network xml
 win32:{
     PRE_TARGETDEPS += $$PWD/lib/libqwebdav.a
@@ -6,4 +8,6 @@ win32:{
 } else {
     INCLUDEPATH += $$PWD/qwebdavlib/
     LIBS += -L$$PWD/lib/ -lqwebdav
+}
+
 }
