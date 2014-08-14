@@ -4,6 +4,6 @@ win32:{
     INCLUDEPATH += $$PWD/qwebdavlib/
     LIBS += -L$$PWD/lib/ -lqwebdav
 } else {
-    INCLUDEPATH += $$OUT_PWD/../qwebdavlib/
+    INCLUDEPATH += $$PWD/qwebdavlib/
     LIBS += -L$$PWD/lib/ -lqwebdav
 }
